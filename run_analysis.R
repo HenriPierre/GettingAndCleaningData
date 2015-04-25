@@ -1,3 +1,9 @@
+install.packages("reshape")
+install.packages("XQuartz")
+install.packages("dplyr")
+library(dplyr)
+library(XQuartz)
+library(reshape)
 features<-read.table("features.txt",header = FALSE) #load the "features" file that will later give us the column names of our data set
 X_test<-read.table("test/X_test.txt",header = FALSE,col.names=c(as.character(features$V2))) #load the test file with the features as column names
 X_train<-read.table("train/X_train.txt",header = FALSE,col.names=c(as.character(features$V2))) #load the train file with the features as column names
