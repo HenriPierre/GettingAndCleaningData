@@ -2,7 +2,7 @@ features<-read.table("features.txt",header = FALSE) #load the "features" file th
 X_test<-read.table("test/X_test.txt",header = FALSE,col.names=c(as.character(features$V2))) #load the test file with the features as column names
 X_train<-read.table("train/X_train.txt",header = FALSE,col.names=c(as.character(features$V2))) #load the train file with the features as column names
 X<-rbind(X_test,X_train)
-X2<-X[,c(grep(".mean.",names(X)),grep(".std",names(X)))] #Extracts only the measurements on the mean and standard deviation for each measurement
+X2<-X[,c(grep(".mean..",names(X),ignore.case=FALSE,fixed=TRUE),grep(".std",names(X),ignore.case=FALSE,fixed=TRUE))] #Extracts only the measurements on the mean and standard deviation for each measurement
 activitylabeltest<-read.table("test/y_test.txt",header=FALSE,colClasses="factor") #load the y_test file providing the concerned activities
 activitylabeltrain<-read.table("train/y_train.txt",header=FALSE,colClasses="factor") #load the y_train file providing the concerned activities
 activitylabel<-rbind(activitylabeltest,activitylabeltrain) # combine row-wise the activitylabel data frames
